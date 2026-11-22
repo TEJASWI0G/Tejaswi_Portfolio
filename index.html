@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Tejaswi G — Power BI, business intelligence, reporting and operations." />
+  <title>Tejaswi G | Business Intelligence & Reporting</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2d;
+      --panel2: #172239;
+      --text: #edf2fb;
+      --muted: #aab6ca;
+      --line: rgba(205,220,245,.13);
+      --accent: #63d5c5;
+      --accent2: #8ba8ff;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px);
+      background: rgba(11,16,32,.88); border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 70px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font-weight: 800; letter-spacing: .03em; }
+    .brand span { color: var(--accent); }
+    .navlinks { display:flex; flex-wrap:wrap; gap:22px; color:var(--muted); font-size:.9rem; }
+    .hero { padding: 100px 0 78px; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; font-weight:750; }
+    h1 { font-size:clamp(2.8rem, 7vw, 5.3rem); line-height:1.03; letter-spacing:-.055em; margin:18px 0; max-width:850px; }
+    h1 span { color:var(--accent); }
+    .lead { color:var(--muted); font-size:1.15rem; max-width:760px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .btn { display:inline-flex; padding:12px 19px; border-radius:10px; font-weight:700; border:1px solid var(--line); }
+    .primary { background:var(--accent); color:#07121a; border-color:var(--accent); }
+    .primary:hover { color:#07121a; filter:brightness(1.06); }
+    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:54px; }
+    .stat,.card,.skillbox,.timeline-item { background:var(--panel); border:1px solid var(--line); border-radius:16px; }
+    .stat { padding:18px; }
+    .stat strong { display:block; font-size:1.7rem; color:var(--accent); }
+    .stat small { color:var(--muted); }
+    section { padding:76px 0; border-top:1px solid var(--line); }
+    .section-head { margin-bottom:30px; }
+    h2 { font-size:clamp(1.8rem,4vw,2.6rem); line-height:1.15; margin:8px 0 10px; letter-spacing:-.035em; }
+    .sub { color:var(--muted); max-width:720px; margin:0; }
+    .about-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:22px; }
+    .card { padding:25px; }
+    .card p { color:var(--muted); margin:0 0 12px; }
+    .focus-list { display:grid; gap:12px; }
+    .focus { padding:14px 16px; border-radius:12px; background:var(--panel2); color:var(--muted); }
+    .focus b { display:block; color:var(--text); margin-bottom:2px; }
+    .skills { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .skillbox { padding:21px; }
+    .skillbox h3 { margin:0 0 12px; font-size:1.05rem; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; }
+    .tag { border:1px solid var(--line); color:var(--muted); background:var(--panel2); padding:6px 10px; border-radius:8px; font-size:.86rem; }
+    .timeline { display:grid; gap:14px; }
+    .timeline-item { padding:22px 24px; display:grid; grid-template-columns:190px 1fr; gap:22px; }
+    .date { color:var(--accent); font-size:.88rem; font-weight:700; }
+    .timeline-item h3 { margin:0; font-size:1.12rem; }
+    .org { color:var(--muted); margin:3px 0 10px; }
+    ul { margin:8px 0 0; padding-left:19px; color:var(--muted); }
+    li { margin:5px 0; }
+    .projects { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .project-media { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; margin:16px 0 8px; }
+    .project-media.single { grid-template-columns:1fr; }
+    .project-media img { width:100%; height:190px; object-fit:contain; background:#080d18; border:1px solid var(--line); border-radius:10px; }
+    .project { min-height:0; }
+    .project { padding:25px; display:flex; flex-direction:column; min-height:320px; }
+    .project-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .project h3 { font-size:1.25rem; margin:15px 0 8px; }
+    .project p { color:var(--muted); }
+    .project .tags { margin:8px 0 20px; }
+    .project-links { display:flex; gap:16px; margin-top:auto; color:var(--accent); font-weight:700; font-size:.92rem; }
+    .certs { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .cert { padding:17px 19px; background:var(--panel); border:1px solid var(--line); border-radius:12px; }
+    .cert b { display:block; }
+    .cert span { color:var(--muted); font-size:.9rem; }
+    .edu { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .edu .card h3 { margin:0 0 5px; }
+    .edu .card p { margin:0; }
+    .contact-box { display:flex; align-items:center; justify-content:space-between; gap:25px; padding:30px; background:linear-gradient(120deg, #142b3b, #17213a); border:1px solid var(--line); border-radius:18px; }
+    .contact-box p { color:var(--muted); margin:6px 0 0; }
+    footer { padding:28px 0; color:var(--muted); font-size:.88rem; border-top:1px solid var(--line); }
+    .note { font-size:.85rem; color:#91a0b8; }
+    @media(max-width:800px) {
+      .navlinks { gap:12px; font-size:.82rem; }
+      .stats { grid-template-columns:repeat(2,1fr); }
+      .about-grid,.skills,.projects,.certs,.edu { grid-template-columns:1fr; }
+      .timeline-item { grid-template-columns:1fr; gap:8px; }
+      .contact-box { align-items:flex-start; flex-direction:column; }
+    }
+    @media(max-width:520px) {
+      .wrap { width:min(100% - 28px, var(--max)); }
+      nav { align-items:flex-start; padding:15px 0; flex-direction:column; }
+      .navlinks { gap:10px 16px; }
+      .hero { padding:70px 0 55px; }
+      section { padding:58px 0; }
+      .stats { gap:9px; }
+      .stat { padding:14px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#home">TEJASWI<span>.</span></a>
+    <div class="navlinks">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+      <a href="#projects">Projects</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="home">
+  <div class="wrap hero">
+    <div class="eyebrow">Business Intelligence · Reporting · Operations</div>
+    <h1>Turning business data into <span>clear decisions.</span></h1>
+    <p class="lead">I'm Tejaswi G, a Computer Science graduate and Microsoft Certified Power BI Data Analyst Associate. I work across Power BI reporting, data preparation, SQL and process-driven operations, with an interest in building clear, useful business insights.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">Explore my projects</a>
+      <a class="btn" href="https://drive.google.com/file/d/1MSzASJglTZzfRxGsIYqHJQuj1nXYHZ_l/view?usp=sharing" target="_blank" rel="noreferrer">View my CV ↗</a>
+      <a class="btn" href="mailto:tejaswiacc1@gmail.com">Contact me</a>
+      <a class="btn" href="https://www.linkedin.com/in/tejaswi9339/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>PL-300</strong><small>Microsoft certified</small></div>
+      <div class="stat"><strong>20+</strong><small>Power BI reports developed during internship</small></div>
+      <div class="stat"><strong>7</strong><small>Featured analytics & application projects</small></div>
+      <div class="stat"><strong>7.96</strong><small>B.Tech CGPA</small></div>
+    </div>
+  </div>
+<section id="about">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">About</div><h2>A blend of analytics and operational understanding.</h2></div>
+      <div class="about-grid">
+        <div class="card">
+          <p>I hold a B.Tech in Computer Science and Engineering from Lovely Professional University and have experience in business reporting, technical training and banking operations.</p>
+          <p>During my internship at Xanadu Realty, I developed Power BI reports and dashboards to help business teams monitor sales performance and key metrics. At Intellipaat, I supported learners through SQL and Power BI sessions and technical query resolution. In my current role at IndusInd Bank, I work in a structured credit-card servicing environment involving service requests, escalations, process adherence and internal coordination.</p>
+          <p>I'm interested in roles where I can combine data visualization, reporting, analytical thinking and business process knowledge to support informed decisions.</p>
+        </div>
+        <div class="focus-list">
+          <div class="focus"><b>Business intelligence</b>Interactive dashboards, KPIs and performance reporting.</div>
+          <div class="focus"><b>Data preparation</b>SQL, Power Query, data cleaning and transformation.</div>
+          <div class="focus"><b>Business operations</b>Service workflows, ticket management and process coordination.</div>
+          <div class="focus"><b>Communication</b>Technical explanation, learner support and stakeholder coordination.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Capabilities</div><h2>Skills & tools</h2><p class="sub">A practical mix of business intelligence, data handling and operational skills.</p></div>
+      <div class="skills">
+        <div class="skillbox"><h3>Business Intelligence</h3><div class="tags"><span class="tag">Power BI</span><span class="tag">Dashboard Development</span><span class="tag">Data Visualization</span><span class="tag">KPI Reporting</span><span class="tag">DAX (Basic)</span><span class="tag">Data Modelling</span></div></div>
+        <div class="skillbox"><h3>Data & Databases</h3><div class="tags"><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">Microsoft SQL Server</span><span class="tag">SQLite</span><span class="tag">Data Cleaning</span><span class="tag">Data Transformation</span></div></div>
+        <div class="skillbox"><h3>Reporting & Operations</h3><div class="tags"><span class="tag">MIS Reporting</span><span class="tag">Excel</span><span class="tag">Performance Monitoring</span><span class="tag">SLA Tracking</span><span class="tag">Ticket Management</span><span class="tag">Process Coordination</span></div></div>
+        <div class="skillbox"><h3>Technical Tools</h3><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Git</span><span class="tag">GitHub</span></div></div>
+        <div class="skillbox"><h3>Professional Skills</h3><div class="tags"><span class="tag">Analytical Thinking</span><span class="tag">Problem-solving</span><span class="tag">Stakeholder Communication</span><span class="tag">Cross-functional Coordination</span><span class="tag">Technical Training</span></div></div>
+        <div class="skillbox"><h3>Areas of Interest</h3><div class="tags"><span class="tag">Business Intelligence</span><span class="tag">Business Reporting</span><span class="tag">MIS</span><span class="tag">Operations Analytics</span><span class="tag">Data Visualization</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Career</div><h2>Professional experience</h2></div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="date">Dec 2025 – Present</div>
+          <div><h3>Customer Service Representative – AM Grade</h3><div class="org">IndusInd Bank · Chennai, India</div>
+            <ul><li>Handle credit-card service requests and customer issues in a process-driven banking environment.</li><li>Manage escalations through structured issue-resolution workflows and coordinate with internal teams.</li><li>Perform operational calculations and validate information to support accurate processing and query resolution.</li><li>Follow SOPs, service-level requirements and quality standards while maintaining operational accuracy.</li></ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="date">Feb 2025 – Sep 2025</div>
+          <div><h3>Technical Research Analyst</h3><div class="org">Intellipaat · Bengaluru, India</div>
+            <ul><li>Managed learner support tickets, analysed queries and provided solutions to technical issues.</li><li>Conducted one-to-one doubt-clearing sessions and explained technical concepts.</li><li>Delivered live sessions covering Microsoft SQL Server, Advanced Excel and Power BI.</li><li>Guided learners through SQL queries, database concepts and Power BI features using practical examples.</li></ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="date">Jun 2024 – Aug 2024</div>
+          <div><h3>Data Science Intern</h3><div class="org">Xanadu Realty · Mumbai, India</div>
+            <ul><li>Developed 20+ Power BI reports and multi-page dashboards for sales analysis and business reporting.</li><li>Used Power Query to clean, transform and prepare sales data for consistent reporting.</li><li>Designed interactive visualizations to communicate sales trends and performance indicators.</li></ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="date">Feb 2024</div>
+          <div><h3>Campus Ambassador</h3><div class="org">MyCaptain · Remote</div>
+            <ul><li>Promoted educational programs and supported campus events, workshops and outreach activities.</li><li>Acted as a liaison between students and the programme team, sharing feedback and engagement insights.</li></ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="date">Jan 2024</div>
+          <div><h3>Data Analytics & Visualization Job Simulation</h3><div class="org">Forage · Accenture North America · Remote</div>
+            <ul><li>Completed a practical simulation involving data cleaning, transformation, analysis and visualization.</li><li>Used Excel, Python, SQL and Power BI to explore data and communicate business insights.</li></ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="date">Dec 2023 – Jan 2024</div>
+          <div><h3>Data Analyst Intern</h3><div class="org">MeriSKILL · Remote</div>
+            <ul><li>Analysed data using SQL, Python and Excel to identify patterns and insights.</li><li>Built Power BI dashboards and cleaned and transformed datasets to support reliable reporting.</li></ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="date">Jun 2023 – Jul 2023</div>
+          <div><h3>Public Relations Intern</h3><div class="org">SLTL Group – Sahajanand Laser Technology Ltd · Remote</div>
+            <ul><li>Supported PR campaigns, communication materials, event coordination and outreach activities.</li><li>Gained exposure to media relations, content creation and professional communication.</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Selected work</div><h2>Projects</h2><p class="sub">Practical projects demonstrating reporting, analytics and operational workflow capabilities.</p></div>
+      <div class="projects">
+        <article class="card project">
+          <div class="project-top"><span class="eyebrow">01 · Business intelligence</span><span class="tag">Featured</span></div>
+          <h3>Credit Card Analytics Dashboard</h3>
+          <div class="project-media"><img src="tejaswi_portfolio_assets/credit-card-transactions.png" alt="Credit card transaction analysis dashboard"><img src="tejaswi_portfolio_assets/credit-card-customers.png" alt="Credit card customer analysis dashboard"></div>
+          <p>A two-page Power BI report exploring credit-card revenue, transaction activity, interest earned, customer demographics and spending patterns.</p>
+          <ul><li>Analysed ₹56.52M in revenue and 667K transactions.</li><li>Used PostgreSQL and SQL to prepare structured data.</li><li>Added filters for quarter, card category, transaction type and customer segments.</li></ul>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span></div>
+          <div class="project-links"><a href="https://github.com/TEJASWI0G/Credit-Card-Analytics-PowerBI" target="_blank" rel="noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="card project">
+          <div class="project-top"><span class="eyebrow">02 · Operations application</span><span class="tag">Featured</span></div>
+          <h3>Nexus – IT Service Desk</h3>
+          <p>An interactive ticket-management application to record reported issues, track ticket status and monitor service-level performance throughout the resolution process.</p>
+          <ul><li>Implemented SLA targets: High – 4 hours, Medium – 8 hours, Low – 24 hours.</li><li>Built dashboard summaries for ticket status, priority distribution and SLA compliance.</li><li>Added status updates, resolution timestamps and CSV export.</li></ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">SQLite</span><span class="tag">Pandas</span><span class="tag">Plotly</span></div>
+          <div class="project-links"><a href="https://github.com/TEJASWI0G/Nexus-IT-Service-Desk" target="_blank" rel="noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="card project">
+          <div class="project-top"><span class="eyebrow">03 · Healthcare analytics</span></div>
+          <h3>Healthcare Analysis Dashboard</h3>
+          <div class="project-media"><img src="tejaswi_portfolio_assets/healthcare-outcomes.png" alt="Healthcare outcomes and recovery analysis in Tableau"><img src="tejaswi_portfolio_assets/healthcare-regional-analysis.png" alt="Healthcare regional and insurance analysis in Tableau"></div>
+          <p>A Tableau analysis exploring healthcare outcomes, disease categories, patient demographics, hospital types, insurance coverage and regional patterns.</p>
+          <div class="tags"><span class="tag">Tableau</span><span class="tag">Data Visualization</span><span class="tag">Healthcare Analytics</span></div>
+          <div class="project-links"><a href="https://github.com/TEJASWI0G/Healthcare_Analysis_Tableau" target="_blank" rel="noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="card project">
+          <div class="project-top"><span class="eyebrow">04 · Content analytics</span></div>
+          <h3>Netflix Dashboard</h3>
+          <div class="project-media single"><img src="tejaswi_portfolio_assets/netflix-content-analysis.png" alt="Netflix titles, genres, countries and release-year dashboard"></div>
+          <p>A visual exploration of Netflix's content catalogue, including movie and TV show distribution, country contributions, ratings, genres and release-year trends.</p>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">Data Analysis</span><span class="tag">Data Visualization</span></div>
+          <div class="project-links"><a href="https://github.com/TEJASWI0G/Netflix_Dashboard" target="_blank" rel="noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="card project">
+          <div class="project-top"><span class="eyebrow">05 · People analytics</span></div>
+          <h3>HR Analytics Dashboard</h3>
+          <div class="project-media single"><img src="tejaswi_portfolio_assets/hr-analytics.png" alt="Excel HR analytics dashboard showing attrition, employee demographics and job satisfaction"></div>
+          <p>An Excel dashboard examining workforce composition, employee attrition, job satisfaction, education, department and age-group trends.</p>
+          <div class="tags"><span class="tag">Microsoft Excel</span><span class="tag">HR Analytics</span><span class="tag">Dashboard Reporting</span></div>
+          <div class="project-links"><a href="https://github.com/TEJASWI0G/HR_Analytics" target="_blank" rel="noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="card project">
+          <div class="project-top"><span class="eyebrow">06 · Retail analytics</span></div>
+          <h3>Vrinda Store Sales Report</h3>
+          <div class="project-media single"><img src="tejaswi_portfolio_assets/vrinda-store-sales.png" alt="Vrinda Store 2023 Excel sales report dashboard"></div>
+          <p>An Excel sales report analysing monthly orders and revenue, customer demographics, order status, sales channels, product categories and state-wise performance.</p>
+          <div class="tags"><span class="tag">Microsoft Excel</span><span class="tag">Sales Analysis</span><span class="tag">Pivot Tables</span></div>
+          <div class="project-links"><a href="https://github.com/TEJASWI0G/ds-excel-store" target="_blank" rel="noreferrer">View repository ↗</a></div>
+        </article>
+        <article class="card project">
+          <div class="project-top"><span class="eyebrow">07 · Retail & forecasting</span></div>
+          <h3>Superstore Sales & Forecasting</h3>
+          <div class="project-media"><img src="tejaswi_portfolio_assets/superstore-sales-dashboard.png" alt="Superstore sales and profit Power BI dashboard"><img src="tejaswi_portfolio_assets/superstore-sales-forecast.png" alt="Superstore sales forecast and state analysis"></div>
+          <p>A Power BI sales dashboard with regional, segment, category, shipping and profitability views, alongside a sales forecasting analysis.</p>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">Sales Analytics</span><span class="tag">Forecasting</span></div>
+          <div class="project-links"><a href="https://github.com/TEJASWI0G/Super_store_powerBi" target="_blank" rel="noreferrer">View repository ↗</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Education</div><h2>Academic background</h2></div>
+      <div class="edu">
+        <div class="card"><h3>Bachelor of Technology – Computer Science and Engineering</h3><p>Lovely Professional University</p><p>June 2021 – August 2025 · CGPA: 7.96/10</p></div>
+        <div class="card"><h3>Higher Secondary – 10+2</h3><p>Central Board of Secondary Education (CBSE)</p><p>June 2020 – August 2021 · 90%</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Credentials</div><h2>Licenses & certifications</h2></div>
+      <div class="certs">
+        <div class="cert"><b>Microsoft Certified: Power BI Data Analyst Associate (PL-300)</b><span>Microsoft · Oct 2026 – Oct 2027</span></div>
+        <div class="cert"><b>Introduction to Commercial Banking and FinTech</b><span>NPTEL · Apr 2026</span></div>
+        <div class="cert"><b>Data Science for Engineers</b><span>NPTEL · Apr 2024</span></div>
+        <div class="cert"><b>SQL (Basic)</b><span>HackerRank · Jan 2024</span></div>
+        <div class="cert"><b>Accenture North America – Data Analytics and Visualization Job Simulation</b><span>Forage · Jan 2024</span></div>
+        <div class="cert"><b>Data Visualization in Excel</b><span>Macquarie University · Oct 2023</span></div>
+        <div class="cert"><b>Data Fundamentals</b><span>IBM · Jul 2023</span></div>
+        <div class="cert"><b>AI Tools Workshop</b><span>be10X · Participation certificate</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div><div class="eyebrow">Get in touch</div><h2>Let's connect.</h2><p>Interested in Power BI, reporting, business intelligence and operations-focused opportunities.</p><p>Chennai, Tamil Nadu, India</p></div>
+        <div class="actions">
+          <a class="btn primary" href="mailto:tejaswiacc1@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/tejaswi9339/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="btn" href="https://github.com/TEJASWI0G" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+      <p class="note" style="margin-top:16px">Phone: +91 9779391020 · Email: tejaswiacc1@gmail.com</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Tejaswi G · Business Intelligence & Reporting Portfolio</div></footer>
+</body>
+</html>
